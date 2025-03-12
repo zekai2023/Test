@@ -33,7 +33,7 @@
 
     <script>
         function testBackend() {
-            fetch("http://localhost:8080/ping")
+            fetch("http://118.178.135.46:8080/ping")  <!-- 修改为你的公网 IP -->
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById("pingResult").innerText = "后端响应：" + data.message;
@@ -42,15 +42,15 @@
                     document.getElementById("pingResult").innerText = "后端连接失败：" + error;
                 });
         }
-
+    
         function askQuestion() {
             let question = document.getElementById("question").value;
             if (!question) {
                 alert("请输入问题");
                 return;
             }
-
-            fetch("http://localhost:8080/ask", {
+    
+            fetch("http://118.178.135.46:8080/ask", { 
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ question: question })
@@ -64,6 +64,7 @@
             });
         }
     </script>
+    
 
 </body>
 </html>
