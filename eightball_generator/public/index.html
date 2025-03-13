@@ -33,7 +33,7 @@
 
     <script>
         function testBackend() {
-            fetch("http://118.178.135.46:8080/ping")  <!-- 修改为你的公网 IP -->
+            fetch("http://localhost:8080/ping")  <!-- 修改为你的公网 IP -->
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById("pingResult").innerText = "后端响应：" + data.message;
@@ -50,11 +50,15 @@
                 return;
             }
     
-            fetch("http://118.178.135.46:8080/ask", { 
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ question: question })
-            })
+            fetch("http://localhost:8080/ask", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ user_input: "你好！" })
+})
+.then(res => res.json())
+.then(data => console.log(data.response))
             .then(response => response.json())
             .then(data => {
                 document.getElementById("output").innerText = "回答：" + data.answer;
