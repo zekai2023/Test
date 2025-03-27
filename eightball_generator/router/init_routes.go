@@ -11,5 +11,9 @@ func InitRoutes(r *gin.Engine) {
 	r.POST("/ask", controller.Ask)  // 新增 /ask 接口
 	r.GET("/question", controller.Question_Get)
 	r.GET("/question1", controller.GetQuestion)
-	r.GET("/generate-question", controller.GenerateQuestion)
+	r.POST("/generate-question", controller.GenerateQuestion)
+	r.POST("/login", controller.LoginHandler)
+	r.GET("/getWrongQuestions", controller.GetWrongQuestionsHandler)
+	// r.GET("/generate-essay-question", controller.Generate_essay_Question)
+	r.POST("/submit-answers", controller.GradeAnswers)
 }

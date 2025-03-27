@@ -6,3 +6,12 @@ type Question struct {
 	QuestionText  string `json:"question_text"`
 	CorrectOption string `json:"correct_option"` // 添加这个字段来存储正确答案
 }
+
+type WrongQuestion struct {
+	ID         int    `json:"id"`
+	OpenID     string `json:"openid"`
+	Question   string `json:"question"`
+	Answer     string `json:"answer"`
+	CreateTime string `json:"create_time"`
+	UserAnswer string `json:"user_answer"`
+}
